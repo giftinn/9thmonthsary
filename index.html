@@ -9,14 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Cormorant+Garamond:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-    box-sizing:border-box
-}
-
+*{box-sizing:border-box}
 body{
 margin:0;
 font-family:'Inter',sans-serif;
-background:#f7f2e9;
+background:#EAF1FF;
 height:100vh;
 overflow:hidden;
 }
@@ -46,7 +43,7 @@ pointer-events:none;
 }
 
 .card::-webkit-scrollbar{width:6px}
-.card::-webkit-scrollbar-thumb{background:#e8b4bc;border-radius:10px}
+.card::-webkit-scrollbar-thumb{background:#6FA8FF;border-radius:10px}
 
 .card.active{
 opacity:1;
@@ -65,7 +62,8 @@ button{
 padding:12px 26px;
 border:none;
 border-radius:999px;
-background:#e8b4bc;
+background:#2E5AAC;
+color:white;
 cursor:pointer;
 margin-top:18px;
 font-size:15px;
@@ -73,7 +71,7 @@ transition:.25s;
 }
 button:hover{
 transform:scale(1.05);
-box-shadow:0 10px 25px rgba(232,180,188,.4);
+box-shadow:0 10px 25px rgba(46,90,172,.4);
 }
 
 /* PIN */
@@ -87,9 +85,9 @@ margin:25px 0;
 width:18px;
 height:18px;
 border-radius:50%;
-border:2px solid #e8b4bc;
+border:2px solid #2E5AAC;
 }
-.dot.fill{background:#e8b4bc}
+.dot.fill{background:#2E5AAC}
 
 .keypad{
 display:grid;
@@ -110,8 +108,8 @@ gap:12px;
 margin-top:20px;
 }
 #options button{
-background:#f7f2e9;
-border:1px solid #e8b4bc;
+background:#2E5AAC;
+border:1px solid #0d3277;
 }
 
 .score-box{
@@ -129,8 +127,8 @@ transition:.3s;
 
 .correctAnim{
 animation:pop .4s ease;
-background:#c7f5d9 !important;
-border-color:#8ee6b2 !important;
+background:#388ca3 !important;
+border-color:#8facdb !important;
 }
 @keyframes pop{
 0%{transform:scale(.9)}
@@ -140,7 +138,7 @@ border-color:#8ee6b2 !important;
 
 .wrongAnim{
 animation:shake .4s;
-background:#ffd6d6 !important;
+background:#d84343 !important;
 border-color:#ff9b9b !important;
 }
 
@@ -152,27 +150,29 @@ border-color:#ff9b9b !important;
 
 /* TIMER */
 .lovebox{
-background:linear-gradient(145deg,#fff,#fdecef);
+background:linear-gradient(145deg,#fff,#dbe8ff);
 border-radius:22px;
 padding:20px;
 margin-bottom:25px;
-box-shadow:0 12px 35px rgba(232,180,188,.25);
-border:1px solid rgba(232,180,188,.25);
+box-shadow:0 12px 35px rgba(46,90,172,.25);
+border:1px solid rgba(46,90,172,.25);
 }
 
 .timer-title{
 font-size:12px;
 letter-spacing:2px;
+color: #0d3277;
 opacity:.6;
 }
 
 .timer-display{
 font-family:'DM Serif Display',serif;
-font-size:28px;
+font-size:25px;
 margin-top:8px;
-color:#c97d88;
+color:#1B3C73;
 letter-spacing:1px;
 animation:pulse 2.5s infinite;
+text-shadow:0 0 12px rgba(111,168,255,.6);
 }
 @keyframes pulse{50%{opacity:.5}}
 
@@ -184,9 +184,9 @@ display:flex;
 align-items:center;
 justify-content:center;
 border-radius:20px;
-border:2px dashed #e8b4bc;
+border:2px dashed #2E5AAC;
 cursor:pointer;
-background:#fff8f9;
+background:#F4F8FF;
 transition:.3s;
 }
 .reveal-box:hover{transform:scale(1.02)}
@@ -211,14 +211,21 @@ text-align:right;
 font-family:'Playfair Display',serif;
 font-size:20px;
 letter-spacing:1px;
-color:#b07c83;
+color:#1B3C73;
 animation:fadeInText 1.8s ease;
 }
+
+.card h1 {
+color: #0d3277;
+font-size: 22px;
+}
+
 
 @keyframes fadeInText{
 from{opacity:0;transform:translateY(10px)}
 to{opacity:1;transform:translateY(0)}
 }
+
 
 /* HEART BACKGROUND */
 canvas{
@@ -240,8 +247,8 @@ pointer-events:none;
 
 <!-- welcome -->
 <section class="card active">
-<h1>Special gift</h1>
-<p>For someone i love the most. <br>But you have to unlock it.</p>
+<h1>Haii baby, Happy Mensive</h1>
+<p>this is for uu mwah. <br>But you have to unlock it.</p>
 <button onclick="next()">Unlock</button>
 </section>
 
@@ -282,7 +289,7 @@ Points: <span id="score">0</span> / 3
 <!-- final -->
 <section class="card">
 
-<h1>Another Month of Us</h1>
+<h1>for kaka</h1>
 
 <div class="lovebox">
 <div class="timer-title">TIME WITH YOU</div>
@@ -336,7 +343,7 @@ if(page===2)loadQuestion();
 ================================================= */
 
 let pinInput = '';
-const correctPin = '1402';
+const correctPin = '1818';
 const pinDisplay = document.getElementById("pin");
 
 function renderDots(){
@@ -384,9 +391,9 @@ function checkPin(){
 ================================================= */
 
 const questions=[
-{q:"When did we first meet? ", options:["14 February"," 24 January","22 January"],correct:2},
-{q:"Who loves the most?", options:["You","100% me","Both"],correct:2},
-{q:"What’s on my mind most of the time?", options:["Anime","Someone else","You (my pretty girlfriend"],correct:2}
+{q:"Who loves harder?", options:["You","Me","Both"],correct:2},
+{q:"kapan kita pacaran?", options:["Agustus","Juni","Oktober"],correct:0},
+{q:"Di game apa kita ketemu?", options:["Blade ball","Evade","Fish it"],correct:1}
 ];
 
 let currentQ = 0;
@@ -451,7 +458,7 @@ function checkAnswer(i,btn){
 
 function startTimer(){
 
-    const start = new Date("2026-01-22T00:00:00");
+    const start = new Date("2025-08-18T00:00:00");
 
     setInterval(()=>{
 
@@ -485,11 +492,8 @@ function revealMemory(el){
     `;
 
     const text = `
-      Even all the beautiful words in the world still wouldn’t be enough to explain how much you mean to me. Yet here you are, right in my life, and somehow that alone says everything. I admire the little things about you—the way you care about me, the way you talk, and how your eyes light up when you’re excited, especially when it’s with me. 
-
-      With you, I’ve found a kind of peace I didn’t even know I was looking for. It’s a kind of comfort I didn’t know I needed until I found it in you. It’s something I can’t find anywhere else, no matter how hard I try. Every moment with you, no matter how small, feels important and meaningful.
-      
-      Thank you for being here with me, for every moment, every word, and every feeling we’ve shared. Happy 2nd mensiversary, sayangku. I’m so grateful for you, today and always. ❤️  
+      Hi baby, happy monthsarry ke 9 kita :3 im so happy with u, Kaka. Im so sorry kadang bikin kamu tertekan sama aku, aku happy banget karna sampai sekarang masih bisa sama kamu, apalagi aku masih bisa chatan sama kamu, itu udah kaya hal terpenting setiap hari yang aku syukuri T_T. I love uuu sooo much, sorry aku belum bisa ngasi yang terbaik buat kamu.. 
+      maaf jadi cewe yang nyebelin, padahal kamu udah ngelakuin hal terbaik setiap hari buat aku, sorry aku udah bikin hati kamu sedih setiap hari, aku harap setiap harinya kita semakin jatuh cinta, i love u a lottttt. Thank u so much for everything baby. I love you no matter what.
       `;
 
     const paragraphs = text.trim().split(/\n\s*\n/);
