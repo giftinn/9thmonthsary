@@ -538,56 +538,56 @@ function revealMemory(el){
    FLOATING HEARTS BACKGROUND
 ================================================= */
 
-const canvas = document.getElementById("confettiCanvas");
-const ctx = canvas.getContext("2d");
+const canvas=document.getElementById("confettiCanvas");
+const ctx=canvas.getContext("2d");
+canvas.width=innerWidth;
+canvas.height=innerHeight;
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+const colors=[
+"rgba(27,60,115,0.35)",
+"rgba(46,90,172,0.35)",
+"rgba(111,168,255,0.35)"
+];
 
-let hearts = [];
-
+let hearts=[];
 for(let i=0;i<140;i++){
-    hearts.push({
-        x: Math.random()*canvas.width,
-        y: Math.random()*canvas.height,
-        s: Math.random()*6+2,
-        v: Math.random()*0.6+0.2
-    });
+hearts.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+s:Math.random()*6+2,
+v:Math.random()*0.6+0.2,
+c:colors[Math.floor(Math.random()*colors.length)]
+});
 }
 
 function heart(x,y,s){
-
-    ctx.beginPath();
-
-    ctx.moveTo(x,y);
-    ctx.bezierCurveTo(x,y-s,x-s,y-s,x-s,y);
-    ctx.bezierCurveTo(x-s,y+s,x,y+s*1.4,x,y+s*1.8);
-    ctx.bezierCurveTo(x,y+s*1.4,x+s,y+s,x+s,y);
-    ctx.bezierCurveTo(x+s,y-s,x,y-s,x,y);
-
-    ctx.fill();
+ctx.beginPath();
+ctx.moveTo(x,y);
+ctx.bezierCurveTo(x,y-s,x-s,y-s,x-s,y);
+ctx.bezierCurveTo(x-s,y+s,x,y+s*1.4,x,y+s*1.8);
+ctx.bezierCurveTo(x,y+s*1.4,x+s,y+s,x+s,y);
+ctx.bezierCurveTo(x+s,y-s,x,y-s,x,y);
+ctx.fill();
 }
-
 
 function anim(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
 
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = "rgba(232,180,188,0.35)";
+ctx.shadowColor="rgba(111,168,255,0.6)";
+ctx.shadowBlur=12;
 
-    hearts.forEach(h=>{
-        heart(h.x,h.y,h.s);
-
-        h.y += h.v;
-
-        if(h.y > canvas.height){
-            h.y = -90;
-            h.x = Math.random()*canvas.width;
-        }
-    });
-
-    requestAnimationFrame(anim);
+hearts.forEach(h=>{
+ctx.fillStyle=h.c;
+heart(h.x,h.y,h.s);
+h.y+=h.v;
+if(h.y>canvas.height){
+h.y=-90;
+h.x=Math.random()*canvas.width;
 }
+});
 
+requestAnimationFrame(anim);
+}
 anim();
 
 </script>
